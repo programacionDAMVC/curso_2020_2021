@@ -1,0 +1,5 @@
+package teoria.introduccion;
+
+public enum NombreFigura {
+    CUADRILATERO, CUADRADO, ROMBO, RECTANGULO,  ROMBOIDE, CIRCULO, ELIPSE,TRIANGULO,  TRAPECIO_ISOSCELES
+}

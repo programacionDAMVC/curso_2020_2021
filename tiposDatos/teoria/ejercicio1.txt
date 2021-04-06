@@ -1,0 +1,8 @@
+Declaramos e inicializamos variables:
+cadena
+char
+boolean
+float
+
+Mostrar en consola:
+Variable cadena: "contenido de cadena", variable char: "contenido de char", variable boolean "true" y variable float "250f"

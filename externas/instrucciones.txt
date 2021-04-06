@@ -1,0 +1,20 @@
+1. Creamos el proyecto de IntelliJ llamado externas
+2. Creado el directorio libreriasExternas en el proyecto externa, botón derecho sobre externa y seleccionamos directory
+3. Descardo de maven repository itextpdf-5.5.13.1.jar, va a la carpeta Descargas del equipo
+4. Copiamos el jar a la carpeta libreriasExternas
+5. Hacemos saber a IntelliJ que ese jar es una dependencia del proyecto, File -> Project Structure -> Modules -> Dependencies -> + añadimos el jar que está en el directorio libreriasExternas
+6. Copiamos el código ejemplo de https://www.vogella.com/tutorials/JavaPDF/article.html
+7. Creamos el package pdf en src
+8. En ese package creamos la clase FirstPdf, copiamos lo anterior y corregimos el error de "package de.vogella.itext.write;" eliminando porque mi package es pdf
+9. Hacemos pequeños cambios en el código, quitamos new Date() y trabajamos con LocalDate.now()
+10. Hemos creado en el proyecto la carpeta ficherosPDF donde vamos a colocar los fichero pdf que creamos.
+11. Cambiamos el valor de la variable FILE, contiene la ruta que va a tener los ficheros pdf que hagamos, en esta caso ponemos la ruta relativa al proyecto "ficherosPDF/fichero1.pdf", carpeta/nombreFichero
+12. Hemos añadido al final del main sout("Creado fichero pdf " + FILE)
+13. Ejecutamo y probamos que funciona, aparece el mensaje anterior y comprobamos que existe el fichero y lo abrimos con un visor de documentos pdf
+14. Vamos a crear el jar ejecutable, primero eliminamos la carpeta out, y construyo el proyecto con build y aparece de nuevo la carpeta out con los fichero .class
+15. File -> Project Structure -> Artifacts -> + JAR with modules dependencies -> y ya aceptamos
+16. Construir el artifacts con Build -> Artifacts -> seleccionamos el nombre a construir.
+17. Aparecerá en la carpeta out/artifacts ... pdf.jar
+18. Copiamos el pdf.jar a otra carpeta ajena al proyecto y ejecutamos java -jar pdf.jar
+19. Tenemos un error que no existe el fichero "ficherosPDF/fichero1.pdf" y solucionamos creando carpeta "ficherosPDF"
+20. Volvemos a ejecutar java -jar pdf.jar y en la carpeta "ficherosPDF" aparece el fichero "fichero1.pdf"

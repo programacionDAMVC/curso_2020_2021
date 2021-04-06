@@ -1,0 +1,8 @@
+contador        variable    SOUT  IF (contador == 10)
+0               true        0     false
+1               true        1     false
+...........................................
+8               true        8     false
+9               true        9     false
+10              false      10     true  FIN DE BUCLE
+

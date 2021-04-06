@@ -1,0 +1,2 @@
+boli      lápiz     goma      cartulina 
+1,20      0,98      0,25      0,61      

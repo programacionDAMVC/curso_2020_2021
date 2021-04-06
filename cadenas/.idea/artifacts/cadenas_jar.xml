@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="cadenas:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/cadenas_jar</output-path>
+    <root id="archive" name="cadenas.jar">
+      <element id="module-output" name="cadenas" />
+    </root>
+  </artifact>
+</component>

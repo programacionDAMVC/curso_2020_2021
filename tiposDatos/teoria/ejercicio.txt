@@ -1,0 +1,23 @@
+Declaramos e inicializamos un nº entero   int numeroEntero = 34;
+idem con un nº float    .................
+idem con un nº long     ................
+idem con un nº double    double numeroDouble = 2e12;
+
+sumamos el entero con long, e intentamos guardarlos en nuevas variables de tipo int, float, long y double
+idem con en float y el long
+idem con el float y el double
+idem con el double y el long
+
+
+int sumaInt = numeroEntero + numeroLong
+long sumaLong = numeroEntero + numeroLong
+float sumaFloat = numeroEntero + numeroLong
+double sumaDouble = numeroEntero + numeroLong
+System.out.println("guardando en double " + sumaDouble);
+
+.....................................
+sumaDouble = .......
+
+....................................
+
+
