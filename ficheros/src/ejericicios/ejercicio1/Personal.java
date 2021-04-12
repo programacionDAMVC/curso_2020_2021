@@ -9,9 +9,11 @@ public class Personal {
     public Personal(List<Persona> listaPersonas) {
         this.listaPersonas = listaPersonas;
     }
+
     public boolean insertarPersona (Persona persona) {
         return listaPersonas.add(persona);
     }
+
     public List<Persona> obtenerListaPersonasPorPais (String pais) {
         List<Persona> listaPorPais = new ArrayList<>();
         for (Persona persona: listaPersonas) {

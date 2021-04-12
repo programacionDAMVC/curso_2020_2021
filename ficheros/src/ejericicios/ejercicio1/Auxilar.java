@@ -12,9 +12,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Auxilar {
+
     public static List<Persona> extraerListaDesdeFichero (String path) throws IOException {
         List<Persona> listaPersona = new ArrayList<>();
         Path pathFile = Paths.get(path);
+        //usando Scanner
         /*Scanner in = new Scanner(pathFile);
         while (in.hasNextLine()) {
             String linea = in.nextLine();
@@ -32,6 +34,8 @@ public class Auxilar {
         }
         if (in != null)
             in.close();*/
+
+        //usando readAllLines de la clase Files
         List<String> lineas = Files.readAllLines(pathFile);
         for (String linea: lineas) {
             String[] tokens = linea.split(",");
@@ -43,6 +47,7 @@ public class Auxilar {
         return listaPersona;
         //repetir la lógica usando readAllLines de la clase Files
     }
+
     public static void crearFicheroPersonal (List<Persona> listaPersonas) throws IOException {
         //salida del fichero sea personal_9_2_2021_12_31.csv
         LocalDateTime now = LocalDateTime.now();
