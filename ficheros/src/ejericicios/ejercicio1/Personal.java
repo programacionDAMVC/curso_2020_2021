@@ -10,6 +10,10 @@ public class Personal {
         this.listaPersonas = listaPersonas;
     }
 
+    public List<Persona> getListaPersonas() {
+        return listaPersonas;
+    }
+
     public boolean insertarPersona (Persona persona) {
         return listaPersonas.add(persona);
     }

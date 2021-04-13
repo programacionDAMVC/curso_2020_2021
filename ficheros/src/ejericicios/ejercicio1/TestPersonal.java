@@ -32,6 +32,7 @@ public class TestPersonal {
                     case "0" :
                         System.out.println("Fin de programa");
                         sc.close();
+                        Auxilar.crearFicheroPersonal(personal.getListaPersonas());
                         return;  //otra posibilidad System.exit(0)
                     case "1" :
                         mostrarPersonasPorPais();
@@ -55,6 +56,15 @@ public class TestPersonal {
     }
 
     private static void eliminarPersonaPorEmail() {
+        String email ="";
+        while (true){
+            System.out.println("Introduce email válido");
+            email = sc.nextLine();
+            if ( email.contains("@"))
+                break;
+        }
+        boolean resultado = personal.borrarPersonaPorEmail(email);
+        System.out.printf("Borrado usuario de email %s, %B%n", email, resultado);
     }
 
     private static void mostrarPersonasPorPais() {
