@@ -10,7 +10,11 @@ public class TestPersonal {
     public static void main(String[] args) {
         //crear List<Persona> usando el método correspondiente de la clase auxiliar, usando el fichero personal.csv
         try {
-            List<Persona> listaPersona = Auxilar.extraerListaDesdeFichero("EXERCISES_FILES/personal.csv");
+          //  List<Persona> listaPersona = Auxilar.extraerListaDesdeFicheroCSV("EXERCISES_FILES/personal.csv");
+          //  List<Persona> listaPersona = Auxilar.extraerListaDesdeFicheroJSON("EXERCISES_FILES/personal.json");
+
+            List<Persona> listaPersona = Auxilar.leerFichero("EXERCISES_FILES/personal.json");
+
             //crear una instancia de Personal, necesito List<Persona> creada anteriormente
             personal = new Personal(listaPersona);
             //compruebo mostrando en consola la salida del método obtenerListaPersonasPorPais (String pais) de la clase

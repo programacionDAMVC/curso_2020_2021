@@ -1,19 +1,33 @@
 package ejericicios.ejercicio1;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Auxilar {
+    public static List<Persona> leerFichero(String path) throws IOException {
+        if (path.endsWith("csv"))
+            return extraerListaDesdeFicheroCSV(path);
+        else
+            return extraerListaDesdeFicheroJSON(path);
+    }
 
-    public static List<Persona> extraerListaDesdeFichero (String path) throws IOException {
+    private static List<Persona> extraerListaDesdeFicheroJSON(String path) throws IOException {
+        Gson gson = new Gson();
+        Reader reader = Files.newBufferedReader(Paths.get(path));
+        List<Persona> listaPersona = gson.fromJson(reader, new TypeToken<List<Persona>>() {}.getType());
+        //código de lectura
+        return listaPersona;
+    }
+
+    private static List<Persona> extraerListaDesdeFicheroCSV(String path) throws IOException {
         List<Persona> listaPersona = new ArrayList<>();
         Path pathFile = Paths.get(path);
         //usando Scanner
@@ -95,11 +109,11 @@ public class Auxilar {
     }
 
     public static void main(String[] args) {
-        try {
-            extraerListaDesdeFichero("EXERCISES_FILES/personal.csv").forEach(System.out::println);
+        /*try {
+            extraerListaDesdeFicheroCSV("EXERCISES_FILES/personal.csv").forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
        /* List<Persona> lista = new ArrayList<>();
         lista.add(new Persona("nombre1", "apellidos1", "email1", Gender.female, "pais1" ));
         lista.add(new Persona("nombre2", "apellidos2", "email2", Gender.male, "pais2" ));
@@ -110,5 +124,15 @@ public class Auxilar {
         } catch (IOException e) {
             e.printStackTrace();
         }*/
+        try {
+            List<Persona> lista = extraerListaDesdeFicheroJSON("EXERCISES_FILES/personal.json");
+            lista.forEach(System.out::println);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
+
+
 }
