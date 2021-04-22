@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="repaso2Evaluacion:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/repaso2Evaluacion_jar</output-path>
+    <root id="archive" name="repaso2Evaluacion.jar">
+      <element id="module-output" name="repaso2Evaluacion" />
+    </root>
+  </artifact>
+</component>
