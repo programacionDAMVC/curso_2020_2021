@@ -18,11 +18,11 @@ public class Ejemplo5 {
             System.out.printf("Borrada categoría: %B%n", resultado4);
             System.out.println("------------------------------------------");
             System.out.println(BusquedaDatos.obtenerLibrosPrestadosUsuarios());
-            System.out.println("------------------------------------------");
+            System.out.println("----------------INYECCIÓN SQL--------------------------");
             BusquedaDatos.obtenerLibrosNoPrestadosPorEditorial("jj 'OR '1'='1");
             System.out.println("------------------------------------------");
             BusquedaDatos.obtenerLibrosNoPrestadosPorEditorialSeguro("SM");
-            System.out.println("------------------------------------------");
+            System.out.println("--------------INTENTO INYECCIÓN SQL------------------------");
             BusquedaDatos.obtenerLibrosNoPrestadosPorEditorialSeguro("jj 'OR '1'='1");
             System.out.println("------------------------------------------");
             boolean resultado5 = InsertarActualizarBorrarDatos.insertarLibroSeguro("libro nuevo", "autor nuevo", "categora", 1);

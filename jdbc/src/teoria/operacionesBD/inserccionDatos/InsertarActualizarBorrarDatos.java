@@ -28,7 +28,7 @@ public class InsertarActualizarBorrarDatos {
         return operacionesExecuteUpdate(sql);
     }
     public static boolean actulizarNombreCategoriaPorId(String nombre, int idCategoria) throws SQLException {
-        String sql = "UPDATE categoria set nombre= + '" + nombre + "' WHERE id=" + idCategoria + ";";
+        String sql = "UPDATE categoria set nombre=  '" + nombre + "' WHERE id=" + idCategoria + ";";
         return operacionesExecuteUpdate(sql);
     }
     public static boolean borrarCategoriaPorId (int id) throws SQLException {
