@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface LibroEliminadoDAO {
     List<LibroEliminado> buscarLibrosEliminados() throws SQLException;
-    List<LibroEliminado> buscarLibrosEliminadosPorEditorial(String editorial);
+    List<LibroEliminado> buscarLibrosEliminadosPorEditorial(String editorial) throws SQLException;
     List<LibroEliminado> buscarLibrosEliminadosEnUnAnno(int anno) throws SQLException;
 }
