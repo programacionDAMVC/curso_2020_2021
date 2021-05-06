@@ -1,6 +1,4 @@
 package teoria.test;
-import teoria.conexion.Conexion1;
-import teoria.conexion.Conexion2;
 import teoria.conexion.Conexion3;
 
 import java.io.IOException;

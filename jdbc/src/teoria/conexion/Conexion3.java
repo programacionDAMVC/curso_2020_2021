@@ -2,7 +2,6 @@ package teoria.conexion;
 //conexión configurando PRAGMA FOREIGN_KEY=ON
 import org.sqlite.SQLiteConfig;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
