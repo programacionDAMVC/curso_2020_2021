@@ -32,6 +32,12 @@
               <text value="MAYÚSCULA"/>
             </properties>
           </component>
+          <component id="4d05e" class="javax.swing.JButton" binding="botonCierre">
+            <constraints/>
+            <properties>
+              <text value="SALIR"/>
+            </properties>
+          </component>
         </children>
       </grid>
       <grid id="ee5de" binding="panelCentral" layout-manager="GridBagLayout">
