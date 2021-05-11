@@ -10,4 +10,5 @@ public interface LibroDAO {
     List<Libro> listarLibrosPorCategoria(int idCategoria) throws SQLException;
     boolean borrarLibroPorId(int idLibro) throws SQLException;
     boolean insertarLibro(Libro libro) throws SQLException;
+    boolean actualizarLibroPorId(Libro libro) throws SQLException;
 }

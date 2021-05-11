@@ -37,7 +37,7 @@
               <text value="&lt;"/>
             </properties>
           </component>
-          <component id="893fc" class="javax.swing.JButton" binding="buttonUpdaate">
+          <component id="893fc" class="javax.swing.JButton" binding="buttonUpdate">
             <constraints/>
             <properties>
               <text value="Update"/>
@@ -125,7 +125,7 @@
               <text value="EDITORIAL"/>
             </properties>
           </component>
-          <component id="ce8e4" class="javax.swing.JTextField" binding="textFieldEidtorial">
+          <component id="ce8e4" class="javax.swing.JTextField" binding="textFieldEditorial">
             <constraints>
               <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>

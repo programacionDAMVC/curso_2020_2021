@@ -67,4 +67,17 @@ public class LibroDAOSQL implements LibroDAO {
         int resultado = sentencia.executeUpdate();
         return resultado != 0;
     }
+
+    @Override
+    public boolean actualizarLibroPorId(Libro libro) throws SQLException {
+        String sql = "UPDATE libro SET nombre=?, autor=?, editorial=?, idCategoria=? where id =?;";
+        PreparedStatement sentencia = conexion.prepareStatement(sql);
+        sentencia.setString(1, libro.getNombreLibro());
+        sentencia.setString(2, libro.getAutor());
+        sentencia.setString(3, libro.getEditorial());
+        sentencia.setInt(4, libro.getIdCategoria());
+        sentencia.setInt(5, libro.getIdLibro());
+        int resultado = sentencia.executeUpdate();
+        return resultado != 0;
+    }
 }
