@@ -1,5 +1,7 @@
 package vistas;
-
+/*el problema de este código es que se mezcla
+el modelo, la vista y la lógina de negocio
+ */
 import teoria.patrones.DAO.CategoriaDAO;
 import teoria.patrones.DAO.CategoriaDAOSQL;
 import teoria.patrones.DAO.LibroDAO;
@@ -8,7 +10,10 @@ import teoria.patrones.DTO.Libro;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -129,8 +134,77 @@ public class AppLibrary {
                 ex.printStackTrace();
             }
         });
-    }
+        buttonCreate.addActionListener(e -> {
+            String titulo = null;
+            while (true) {
+                titulo = JOptionPane.showInputDialog(frame, "Título del libro");
 
+                if (titulo == null)
+                    return;
+                if (titulo.length() != 0)
+                    break;
+            }
+            String autor = null;
+            while (true) {
+                autor = JOptionPane.showInputDialog(frame, "Autor del libro");
+
+                if (autor == null)
+                    return;
+                if (autor.length() != 0)
+                    break;
+            }
+            String editorial = null;
+            while (true) {
+                editorial = JOptionPane.showInputDialog(frame, "Editorial del libro");
+
+                if (editorial == null)
+                    return;
+                if (editorial.length() != 0)
+                    break;
+
+            }
+
+            Object[] categorias = new String[mapCategorias.size()];
+             Set<Integer> claves = mapCategorias.keySet();
+             int contador = 0;
+            for (Integer clave: claves) {
+                categorias[contador] = mapCategorias.get(clave);
+                contador++;
+            }
+            //System.out.println(Arrays.toString(categorias));
+            Object categoria = JOptionPane.showInputDialog(frame,
+                    "SELECCIONA CATEGORÍA", "Categorías",
+                    JOptionPane.INFORMATION_MESSAGE, null,
+                    categorias, categorias[0]);
+            if (categoria == null)
+                return;
+            Libro libroNuevo = new Libro(titulo, autor, editorial, devolverIdCategoria(categoria.toString()));
+            //añadirlo a lista el nuevo libro
+           // libros.add(libroNuevo); añade un id 0 -valor por defecto- no sincronizado con la BD
+            //añadirlo a la BD
+            try {
+                boolean insertar = libroDAO.insertarLibro(libroNuevo);
+                if (insertar) {
+                    libros = libroDAO.listarLibros();
+                    //nos vamos al libro que acabamos de insertar
+                    pagina = libros.size() -1;
+                    mostrarLibro();
+                    JOptionPane.showMessageDialog(frame, "Añadido libro correctamente",
+                            "Actualización", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(frame, "No se puede añadir libro",
+                            "Actualización", JOptionPane.ERROR_MESSAGE);
+                }
+
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+
+
+        });
+    }
+    //este método es del modelo
     private int devolverIdCategoria(String sIdCategoria) {
         Set<Integer> conjuntoClaves = mapCategorias.keySet();
         for (Integer clave: conjuntoClaves) {
