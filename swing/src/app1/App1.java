@@ -1,5 +1,7 @@
 package app1;
 
+import app1.controlador.Controlador;
+import app1.modelo.Diccionario;
 import app1.vista.App1Vista;
 
 public class App1 {
@@ -9,8 +11,8 @@ public class App1 {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 App1Vista vista = new App1Vista();
-                //crear modelo
-                //crear controlador
+                Diccionario modelo = new Diccionario();
+                Controlador controlador = new Controlador(modelo, vista);
             }
         });
     }

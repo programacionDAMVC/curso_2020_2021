@@ -12,6 +12,23 @@ public class App1Vista {
     private JPanel panelCentral;
     private JTextField traduccion;
     private JLabel label;
+    private JLabel palabraTraducida;
+
+    public JButton getInglesButton() {
+        return inglesButton;
+    }
+
+    public JButton getEspanolButton() {
+        return espanolButton;
+    }
+
+    public JTextField getTraduccion() {
+        return traduccion;
+    }
+
+    public JLabel getPalabraTraducida() {
+        return palabraTraducida;
+    }
 
     public App1Vista() {
         JFrame frame = new JFrame("APP MVC");
