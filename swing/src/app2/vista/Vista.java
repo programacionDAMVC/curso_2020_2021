@@ -11,6 +11,11 @@ public class Vista {
     private JButton guardarButton;
     private JScrollPane panelCentral;
     private JTextArea textArea1;
+    private JFrame frame;
+
+    public JFrame getFrame() {
+        return frame;
+    }
 
     public JButton getAbrirButton() {
         return abrirButton;
@@ -25,7 +30,7 @@ public class Vista {
     }
 
     public Vista() {
-        JFrame frame = new JFrame("App MVC 2");
+        frame = new JFrame("App MVC 2");
         frame.setContentPane(panelPrincipal);
         Dimension dimension =  Toolkit.getDefaultToolkit().getScreenSize();
         frame.setSize(dimension.width / 2, dimension.height /2);
