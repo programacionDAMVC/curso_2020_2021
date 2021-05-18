@@ -11,6 +11,18 @@ public class App4Vista {
     private JScrollPane panelCentral;
     private JTable table1;
 
+    public JTextField getTextFiltro() {
+        return textFiltro;
+    }
+
+    public JTable getTable1() {
+        return table1;
+    }
+
+    public JButton getButtonFiltro() {
+        return buttonFiltro;
+    }
+
     public App4Vista() {
         JFrame frame = new JFrame("Ejemplo tabla");
         frame.setContentPane(panelPrincipal);
