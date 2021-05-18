@@ -6,7 +6,7 @@ public class App5 {
         //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-               //vista
+                app5.vista.App5 vista = new app5.vista.App5();
                 //modelo
                 //controlador
             }
