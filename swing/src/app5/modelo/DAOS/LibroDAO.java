@@ -12,4 +12,5 @@ public interface LibroDAO {
     boolean insertarLibro(Libro libro) throws SQLException;
     int getIDLibro(Libro libro) throws SQLException;
     boolean actualizarLibro(Libro libro) throws SQLException;
+    int obtenerMaximoId () throws SQLException;
 }

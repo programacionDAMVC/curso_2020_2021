@@ -19,6 +19,35 @@ public class App5 {
     private JTextField textFieldEditorial;
     private JComboBox comboBoxCategoria;
     private JButton guardarButton;
+    private JButton cancelarButton;
+
+    public JTextField getTextFieldFilter() {
+        return textFieldFilter;
+    }
+
+    public JButton getButtonFilter() {
+        return buttonFilter;
+    }
+
+    public JTextField getTextFieldTitulo() {
+        return textFieldTitulo;
+    }
+
+    public JTextField getTextFieldAutor() {
+        return textFieldAutor;
+    }
+
+    public JTextField getTextFieldEditorial() {
+        return textFieldEditorial;
+    }
+
+    public JButton getGuardarButton() {
+        return guardarButton;
+    }
+
+    public JButton getCancelarButton() {
+        return cancelarButton;
+    }
 
     public JComboBox getComboBoxCategoria() {
         return comboBoxCategoria;

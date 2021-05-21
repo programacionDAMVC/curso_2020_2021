@@ -17,7 +17,7 @@ public class ModeloTabla extends AbstractTableModel {
     private static final LibroDAO libroDAO = new LibroDAOSQL();
     private static  List<Libro> libros;
     private static  final CategoriaDAO categoriaDAO = new CategoriaDAOSQL();
-    private static Map<Integer, String> mapCategorias;
+    public static Map<Integer, String> mapCategorias;
 
     public ModeloTabla() throws SQLException {
         libros = libroDAO.listarLibros();
@@ -68,7 +68,32 @@ public class ModeloTabla extends AbstractTableModel {
         return columnIndex == 1 || columnIndex == 2 || columnIndex == 3;
     }
 
+    @Override
+    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+        Libro libroAModificar = libros.get(rowIndex);
+       // System.out.printf("Cambio: %s, fila %d, columna %d%n", aValue, rowIndex, columnIndex);
+       System.out.printf("Objeto antes de modificar %s%n", libroAModificar );
+        switch (columnIndex) {
+            case 1:
+                libroAModificar.setNombreLibro((String) aValue);
+                break;
+            case 2:
+                libroAModificar.setAutor((String) aValue);
+                break;
+            case 3:
+                libroAModificar.setEditorial((String) aValue);
+                break;
+        }
+        try {
+            libroDAO.actualizarLibro(libroAModificar);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        //System.out.printf("Objeto después de modificar %s%n", libroAModificar );
+    }
+
     public void removeRow (int row) throws SQLException {
+        //evitamos que no haya fila seleccionada
         if (row < 0)
             return;
         ////eliminar de la base de datos
@@ -77,7 +102,15 @@ public class ModeloTabla extends AbstractTableModel {
         //eliminar de lista
         libros.remove(row);
         fireTableDataChanged();
-
-
+    }
+    public void addRow (Libro libroNuevo) throws SQLException {
+        //insertar en la BD
+        libroDAO.insertarLibro(libroNuevo);
+        //añadirlo a la lista
+        int idLibro = libroDAO.obtenerMaximoId();
+        Libro libroConId = new Libro(idLibro, libroNuevo.getNombreLibro(),
+                libroNuevo.getAutor(), libroNuevo.getEditorial(), libroNuevo.getIdCategoria());
+        libros.add(libroConId);
+        fireTableDataChanged();
     }
 }

@@ -93,4 +93,15 @@ public class LibroDAOSQL implements LibroDAO {
         int resultado = sentencia.executeUpdate();
         return resultado != 0;
     }
+
+    @Override
+    public int obtenerMaximoId() throws SQLException {
+        int idMaximo = 0;
+        String sql  = "select max(id) from libro;";
+        Statement sentencia = conexion.createStatement();
+        ResultSet resultado = sentencia.executeQuery(sql);
+        while (resultado.next())
+            idMaximo = resultado.getInt(1);
+        return idMaximo;
+    }
 }
