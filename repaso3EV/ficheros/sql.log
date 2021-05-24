@@ -1,0 +1,19 @@
+select * from cuenta; :::: 2021-05-24T14:10:02.903710
+2021-05-24T14:10:49.327750 :::: select * from cuenta;
+2021-05-24T14:11:53.082126 :::: select * from cuenta;
+2021-05-24T14:17:57.132956 :::: delete from cuenta where id = ?; 
+ parameters=[999]
+2021-05-24T14:18:42.096531 :::: delete from cuenta where id = ?; 
+ parameters=[999], 0
+2021-05-24T14:19:25.657801 :::: delete from cuenta where id = ?; 
+ parameters=[998], 1
+2021-05-24T14:25:29.873152 :::: delete from cuenta where id = ?; 
+ parameters=[998], 0
+2021-05-24T14:25:49.557445 :::: delete from cuenta where id = ?; 
+ parameters=[997], 1
+2021-05-24T14:26:23.163309 :::: select * from cuenta where id = ?; 
+ parameters=[997]
+2021-05-24T14:26:23.166531 :::: delete from cuenta where id = ?; 
+ parameters=[997], 0
+2021-05-24T14:39:59.962306 :::: org.sqlite.jdbc4.JDBC4Statement@7478ffc8
+2021-05-24T14:41:49.135814 :::: org.sqlite.jdbc4.JDBC4Statement@53973f9f

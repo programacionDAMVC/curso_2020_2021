@@ -1,5 +1,7 @@
 package modelo;
 
+import org.sqlite.SQLiteConfig;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -12,19 +14,26 @@ bd=BD/biblioteca.bd
  */
 
 public class Conexion {
+
     private static Conexion conexion;
     private Connection connection;
 
     private Conexion() throws SQLException, IOException {
+
         Properties propiedades = new Properties();
         propiedades.load(new FileReader("propiedades/bd.properties"));
         String driver = propiedades.getProperty("driver");
         String bd    = propiedades.getProperty("bd");
-        SQLiteConfig config = new SQLiteConfig();
-        config.enforceForeignKeys(true);
+      //  SQLiteConfig config = new SQLiteConfig();
+     //   config.enforceForeignKeys(true);
         //conexión
-        connection = DriverManager.getConnection(
-                driver + bd, config.toProperties());
+     /*   connection = DriverManager.getConnection(
+                driver + bd, config.toProperties());*/
+     //no hace falta integredad referencial
+      //  connection = DriverManager.getConnection(
+      //          driver + bd);
+        //sin fichero propiedades:
+        connection = DriverManager.getConnection("jdbc:sqlite:base_datos/cuenta.db");
 
     }
 
@@ -43,10 +52,10 @@ public class Conexion {
         @Override
         public void run() {
             try {
-                Conexion conexion5 = new Conexion();
-                Connection conexion = conexion5.getConexion();
+                Conexion conexion = new Conexion();
+                Connection connection = conexion.getConexion();
                 if (conexion != null) {
-                    conexion.close();
+                    connection.close();
                     System.out.println("cerrada la conexión");
                 }
 
@@ -55,6 +64,17 @@ public class Conexion {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            System.out.println("conexión: " + Conexion.getInstance().connection);
+            System.out.println("conexión: " + Conexion.getInstance().connection);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
