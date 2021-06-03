@@ -1,4 +1,4 @@
-package poo.poo1;
+package poo.poo1.ejemplo1;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -23,6 +23,8 @@ public class Estudiante {
         this.moduloMatriculados = moduloMatriculados;
     }
     //constructor pro defecto
+    public Estudiante () {}
+
     //getters y setters
 
     public String getNombreEstudiante() {
