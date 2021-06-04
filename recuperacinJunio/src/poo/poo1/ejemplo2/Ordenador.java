@@ -1,6 +1,7 @@
 package poo.poo1.ejemplo2;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Ordenador {
 
@@ -60,8 +61,36 @@ public class Ordenador {
 
     //método que nos dice el ordenador de mayor ram de un array
     public static int obtenerMayorRAMDeOrdenadores (Ordenador[] ordenadores) {
+        int ramMasGrande = 0;
+        for (int i = 0; i < ordenadores.length ; i++)
+            if (ordenadores[i].ram > ramMasGrande)
+                ramMasGrande = ordenadores[i].ram;
 
-
-        return 0;
+        return ramMasGrande;
     }
+
+    //método para ampliar RAM de un ordenador
+    public boolean ampliarRAM (int nuevaRAM) {
+        if (nuevaRAM < 0)
+            return false;
+        int ramInicial = getRam();
+        int ramAmpliada = ramInicial + nuevaRAM;
+        setRam(ramAmpliada);
+        return ramAmpliada > ramInicial; //la memoria nueva es superior a la que había
+    }
+
+    //método que devuelva el ordenador de mayor disco, de una List<Ordenador>
+    //usamos un bucle foreach
+    public static Ordenador obtenerOrdenadorMayorDisco (List<Ordenador> listaOrdenadores) {
+        double discoMasGrande = 0;
+        Ordenador ordenadorDiscoMasGrande = null;
+        for (Ordenador ordenador: listaOrdenadores) {
+            if (ordenador.disco > discoMasGrande) {
+                discoMasGrande = ordenador.disco;
+                ordenadorDiscoMasGrande = ordenador;
+            }
+        }
+        return ordenadorDiscoMasGrande;
+    }
+
 }

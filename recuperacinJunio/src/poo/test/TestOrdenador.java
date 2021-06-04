@@ -16,9 +16,11 @@ public class TestOrdenador {
         ordenador1.setDisco(1);
         ordenador1.setProcesador(TipoProcesador.INTEL);
         System.out.println(ordenador1); //funciona sin el toString()
-        Ordenador ordenador2 = new Ordenador(4, 0.5, TipoProcesador.ARM);
+        Ordenador ordenador2 = new Ordenador(64, 0.5, TipoProcesador.ARM);
         System.out.println(ordenador2);
         Ordenador ordenador3 = new Ordenador(32, 2, TipoProcesador.ARM);
+        System.out.printf("¿Ampliada RAM al ordenador? %B, nueva RAM %d%n",
+                ordenador3.ampliarRAM(64), ordenador3.getRam());
         System.out.println(ordenador3);
 
         //colección básica (array) de objetos Ordenador de tamaño tres
@@ -30,6 +32,9 @@ public class TestOrdenador {
     //    ordenadores[3] = new Ordenador();
         System.out.println(Arrays.toString(ordenadores));
         System.out.printf("Nº de ordenadores %d\n", Ordenador.numeroOrdenadores);
+        System.out.printf("Mayor RAM es: %d%n", Ordenador.obtenerMayorRAMDeOrdenadores(ordenadores));
+
+
         //colección dinámica de objetos Ordenador
         List<Ordenador> listaOrdenadores = new ArrayList<>();
         System.out.println(listaOrdenadores);
@@ -39,6 +44,7 @@ public class TestOrdenador {
         listaOrdenadores.add(new Ordenador());
         System.out.println(listaOrdenadores);
         System.out.printf("Nº de ordenadores %d\n", Ordenador.numeroOrdenadores);
+        System.out.printf("Ordenador de mayor disco %s%n", Ordenador.obtenerOrdenadorMayorDisco(listaOrdenadores));
 
 
     }
