@@ -1,5 +1,7 @@
 package poo.poo2;
 
+import poo.poo2.excepciones.DNIException;
+
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -8,7 +10,9 @@ public class Persona {
     private String dni;
     private LocalDate fechaNacimiento;
 
-    public Persona(String nombreCompletoPersona, String dni, LocalDate fechaNacimiento) {
+    public Persona(String nombreCompletoPersona, String dni, LocalDate fechaNacimiento) throws DNIException {
+        if (! validadDNI(dni))
+            throw new DNIException();
         this.nombreCompletoPersona = nombreCompletoPersona;
         this.dni = dni;
         this.fechaNacimiento = fechaNacimiento;
@@ -29,7 +33,9 @@ public class Persona {
         return dni;
     }
 
-    public void setDni(String dni) {
+    public void setDni(String dni) throws DNIException {
+        if (! validadDNI(dni) )
+            throw new DNIException();
         this.dni = dni;
     }
 
@@ -55,6 +61,26 @@ public class Persona {
 
     //método valide dni
     //primer método que diga que tiene 8 caracteres y 1 una letra
+    public static boolean validarFormatoDNI(String dniAValidarFormato) {
+        String regexFormatoDNI = "^[0-9]{8}[a-zA-Z]$";
+        return dniAValidarFormato.matches(regexFormatoDNI);
+    }
     //segundo método que diga que la letra es correcta
+    public static boolean validadDNI (String dniAValidar) {
+        if ( ! validarFormatoDNI(dniAValidar)) {
+            System.out.printf("%s no tiene el formato de DNI%n", dniAValidar);
+            return false;
+        }
+        // 01234567a   longitud: 9, la letra está en la posición 8
+        char cLletra = dniAValidar.toUpperCase().charAt(8);
+        String sLetra = dniAValidar.substring(8);
+        String sNumero = dniAValidar.substring(0,8);
+     //   System.out.printf("dni: %s, letra: %s, número: %s%n", dniAValidar, sLetra, sNumero);
+        String tabla = "TRWAGMYFPDXBNJZSQVHLCKE";
+        int iNumero = Integer.parseInt(sNumero);
+        int resto = iNumero % 23;
+        char letraTabla = tabla.charAt(resto);
+        return letraTabla == cLletra;
+    }
     //dni válido 11111111h :
 }
