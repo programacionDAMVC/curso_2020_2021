@@ -1,9 +1,6 @@
 package poo.test;
 
-import poo.poo2.Curso;
-import poo.poo2.Estudiante;
-import poo.poo2.Persona;
-import poo.poo2.Profesor;
+import poo.poo2.*;
 import poo.poo2.excepciones.DNIException;
 
 import java.time.LocalDate;
@@ -15,7 +12,7 @@ public class TestEstudianteyProfesor {
         List<Persona> listaEstudiantesYProfesores = new ArrayList<>();
         try {
             Estudiante estudiante1 = new Estudiante("joaquin zafra carrillo", "12345678z",
-                    LocalDate.of(2000,10,1), Curso.PRIMERO_DAM);
+                    LocalDate.of(2010,10,1), Curso.PRIMERO_DAM);
             listaEstudiantesYProfesores.add(estudiante1);
         } catch (DNIException e) {
             e.printStackTrace();
@@ -30,7 +27,8 @@ public class TestEstudianteyProfesor {
             e.printStackTrace();
         }
         try {
-            Persona estudiante3 = new Estudiante("ramón castro pérez", "12345678z", LocalDate.of(1998, 2, 28),
+            Persona estudiante3 = new Estudiante("ramón castro pérez", "12345678z",
+                    LocalDate.of(1998, 2, 28),
                     Curso.SEGUNDO_DAM);
             listaEstudiantesYProfesores.add(estudiante3);
         } catch (DNIException e) {
@@ -68,6 +66,19 @@ public class TestEstudianteyProfesor {
         for (Persona persona: listaEstudiantesYProfesores) {
             System.out.println(persona);
         }
+        //creamos un objeto Instituto
+        Instituto instituto = new Instituto("Virgen del Carmen");
+        //añadimos los miembres de la lista listaEstudiantesYProfesores al objeto anterior
+        for (Persona persona: listaEstudiantesYProfesores) {
+            instituto.annadirPersonal(persona);
+        }
+        System.out.printf("Nº profesores: %d%n", instituto.obtenerNumeroProfesores() );
+        System.out.printf("Nº alumnos: %d%n", instituto.obtenerNumeroAlumnos() );
+        System.out.println("LISTA DE PROFESORES");
+        System.out.println(instituto.obtenerListaProfesores());
+        System.out.println("LISTA ALUMNOS MENORES DE EDAD");
+        System.out.println(instituto.obtenerListaAlumnosMenorEdad());
+
 
 
     }

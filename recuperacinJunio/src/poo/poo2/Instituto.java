@@ -36,10 +36,35 @@ public class Instituto {
         return false;
     }
     //método que devuelva el número de profesores
+    public int obtenerNumeroProfesores () {
+        int contador = 0;
+        for (Persona persona: personal) {
+            if (persona instanceof Profesor)
+                contador++;
+        }
+        return contador;
+    }
 
     //idem con alumnos
+    public int obtenerNumeroAlumnos () {
+        return personal.size() - obtenerNumeroProfesores();
+    }
 
     //método que devuelva una colección de profesores
-
+    public List<Profesor> obtenerListaProfesores () {
+        List<Profesor> lista = new ArrayList<>();
+        for (Persona persona: personal) {
+            if (persona instanceof Profesor)
+                lista.add((Profesor) persona);
+        }
+        return lista;
+    }
     //método que devuelva una colección de alumnos menores de edad
+    public List<Estudiante> obtenerListaAlumnosMenorEdad () {
+        List<Estudiante> lista = new ArrayList<>();
+        for (Persona persona : personal)
+            if (persona instanceof Estudiante && !persona.esMayorEdad())
+                lista.add((Estudiante) persona);
+        return lista;
+    }
 }
