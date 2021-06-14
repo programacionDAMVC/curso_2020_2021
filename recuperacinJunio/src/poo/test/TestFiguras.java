@@ -14,9 +14,10 @@ public class TestFiguras {
         listaFiguras.add(cuadrado1);
         FiguraCircular elipse1 = new Elipse(2.2f, 3.1f);
         listaFiguras.add(elipse1);
+        FiguraCircular circulo1 = new Circulo(2.6f);
+        listaFiguras.add(circulo1);
         for (Figura figura : listaFiguras) {
             System.out.println(figura.obtenerInformacionFigura());
         }
-
     }
 }

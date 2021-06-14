@@ -1,0 +1,2 @@
+Es es una frase para escribir en un fichero
+Esto aparece en otra línea
