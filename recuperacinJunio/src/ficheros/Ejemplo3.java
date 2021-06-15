@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-//escribir un fichero de texto
+//escribir un fichero de texto a nivel de caracter
 public class Ejemplo3 {
     public static void main(String[] args) {
         //definir el descriptor al fichero

@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-//leemos un fichero -da igual que sea de texto o no-
+//leemos un fichero -da igual que sea de texto o no- a nivel de bytes
 public class Ejemplo2 {
     public static void main(String[] args) {
         //descriptor al fichero

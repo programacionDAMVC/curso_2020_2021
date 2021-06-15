@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
+//escribir ficheros a nivel de byte
 public class Ejemplo1 {
     public static void main(String[] args) {
         //definir el descriptor del fichero
